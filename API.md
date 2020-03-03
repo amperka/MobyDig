@@ -35,6 +35,12 @@ Displays a 'c'-formatted string on a chain of `MobyDig` indicator modules. The f
 The 7 segment indicator output supports digits, including floating-point, and limited support for English characters, with the exception of `K,M,N,V,W,X,Z`. Note that the display of letters on a 7-segment indicator does not always correspond to their generally accepted spelling.
 Also supported are the characters: space, underscore, dot, minus, degree (at `^`). Unsupported characters are displayed as `blank space`.
 
+### `void set(uint8_t device, uint8_t symbol)`
+
+Display any maybe not ordinary symbol to the specified position.
+- `device` - `MobyDig` device number in chain. Can be in range [0 : devicesCount-1].
+- `symbol` - any symbol: one bit = one indicator segment. 0 - a, 1 - b ... 7 - h(dot).
+
 ### `void reset()`
 
 Resets values all power switchers of all devices to default state.
