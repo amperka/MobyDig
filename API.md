@@ -36,11 +36,11 @@ The 7 segment indicator output supports digits, including floating-point, and li
 Also supported are the characters: space, underscore, dot, minus, degree (at `^`). Unsupported characters are displayed as `blank space`.
 Important: all Arduino xprintf functions does not support `%f` format specifyer correctly, do the conversion to a string yourself and print the result as a string.
 
-### `void set(uint8_t device, uint8_t symbol)`
+### `void setSegment(uint8_t device, uint8_t segment)`
 
 Display any maybe not ordinary symbol to the specified position.
 - `device` - `MobyDig` device number in chain. Can be in range [0 : devicesCount-1].
-- `symbol` - any symbol: one bit = one indicator segment. 0 - a, 1 - b ... 7 - h(dot).
+- `segment` - any symbol: one bit = one indicator segment. 0 - a, 1 - b ... 7 - h(dot).
 
 ### `void reset()`
 
