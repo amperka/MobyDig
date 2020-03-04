@@ -34,6 +34,7 @@ Initializes the given SPI interface, prepares the board for communication. Impor
 Displays a 'c'-formatted string on a chain of `MobyDig` indicator modules. The format string syntax matches the standard C `printf` function.
 The 7 segment indicator output supports digits, including floating-point, and limited support for English characters, with the exception of `K,M,N,V,W,X,Z`. Note that the display of letters on a 7-segment indicator does not always correspond to their generally accepted spelling.
 Also supported are the characters: space, underscore, dot, minus, degree (at `^`). Unsupported characters are displayed as `blank space`.
+Important: all Arduino xprintf functions does not support `%f` format specifyer correctly, do the conversion to a string yourself and print the result as a string.
 
 ### `void set(uint8_t device, uint8_t symbol)`
 
