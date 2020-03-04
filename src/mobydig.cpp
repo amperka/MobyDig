@@ -45,17 +45,22 @@ void MobyDig::begin(const char* resetString) {
 
 void MobyDig::printf(const char* format, ...) {
     char* buf = new char[_interface.chainLength() * 2 * sizeof(char) + 1];
-    if(buf == NULL) {_interface.writeByte(0,0b01111001); _interface.update(); }
+    if (buf == NULL) {
+        _interface.writeByte(0, 0b01111001);
+        _interface.update();
+    }
 
-    va_list args;   
+    va_list args;
     va_start(args, format);
     uint8_t len = vsnprintf(buf, _interface.chainLength() * 2 * sizeof(char), format, args);
     va_end(args);
 
-    if(len >= 0) 
+    if (len >= 0)
         buf[len] = 0; // in windows gcc version xsprintf does not work properly
-    else  
-        { buf[0] = 'E'; buf[1] = 0; }
+    else {
+        buf[0] = 'E';
+        buf[1] = 0;
+    }
 
     uint8_t i = 0, j = 0;
     while (i < strlen(buf)) {
