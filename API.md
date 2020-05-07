@@ -25,7 +25,6 @@ Difference between hardware and software SPI is interaction speed. Software SPI 
 ### `void begin()`
 
 Initializes the given interface, prepares the board for the communication, and sets all module segments to the 'dark' state.
-
 Call this method before interacting with SegM8. For example, in the `setup()`.
 
 ### `void printf(const char* format, ...)`
