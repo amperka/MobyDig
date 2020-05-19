@@ -36,6 +36,6 @@ More supported characters: space, underscore, dot, minus, degree (at `^`). Unsup
 
 ### `void setSegments(uint8_t device, uint8_t segments)`
 
-Display not ordinary symbol to the specified position, or control some special modules (for example [Octofet board](https://my.amperka.com/modules/octofet)) in chain. You can use special modules for emulate unsupported symbols: colon, semi-colon, plus, asterisk for example, using plane leds.
+Displays a special symbol in the specified position, or controls special modules, i.e. [Octofet board](https://my.amperka.com/modules/octofet)), arranged in a daisy-chain. Special modules can be used to emulate unsupported symbols: colon, semi-colon, plus, asterisk, etc. via plane LEDs or any other simple indicators.
 - `device` - `SegM8` the device number in a chain. Can be in range [0 : devicesCount-1].
 - `segments` - 8 bit pattern: one bit = one indicator segment. 0 - a, 1 - b ... 7 - h(dot).
