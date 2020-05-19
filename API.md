@@ -32,7 +32,7 @@ Call this method before interacting with SegM8. For example, in the `setup()`.
 Displays a 'c'-formatted string in a chain of `SegM8` indicator modules. The format string syntax matches the standard C `printf` function. For example: `Clock.printf("%2d:%2d",hours,minutes);`
 The 7-segment indicator output supports digits, excluding floats, and limited support of English characters: except for `K,M,N,V,W,X,Z`. Note that the display of letters on a 7-segment indicator does not always correspond to their generally accepted look.
 More supported characters: space, underscore, dot, minus, degree (at `^`). Unsupported characters are displayed as `blank space`.
-**Important: Arduino `xprintf` functions do not support `%f` format specifier correctly. Covert float/double in a string before printing the result.**
+**Important: Arduino `xprintf` functions do not support `%f` format specifier correctly. Convert float/double in a string before printing the result.**
 
 ### `void setSegments(uint8_t device, uint8_t segments)`
 
