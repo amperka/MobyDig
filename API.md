@@ -13,7 +13,7 @@ Constructs a new SegM8 object that uses the default hardware SPI bus.
 
 ### `SegM8(uint8_t pinCS, uint8_t pinMOSI, uint8_t pinSCK, uint8_t devicesCount = 1)`
 
-Constructs a new object of data bus Software SPI with arguments:
+Constructs a new SegM8 object that uses a software SPI bus.
 
 - `pinCS`: the chip select (also known as slave select) pin used to control the shift-register latch. It is marked `CS` on the SegM8 module. Any GPIO pin of the controller may be used.
 - `pinMOSI`: the MOSI (Master Out Slave In) pin used to send data to the peripherals. It is marked `DI` on the SegM8 module. Any GPIO pin of the controller may be used.
