@@ -38,4 +38,4 @@ More supported characters: space, underscore, dot, minus, degree (at `^`). Unsup
 
 Displays a special symbol in the specified position, or controls special modules, i.e. [Octofet board](https://my.amperka.com/modules/octofet)), arranged in a daisy-chain. Special modules can be used to emulate unsupported symbols: colon, semi-colon, plus, asterisk, etc. via plane LEDs or any other simple indicators.
 - `device` - `SegM8` the device number in a chain. Can be in the range [0 : devicesCount-1].
-- `segments` - 8 bit pattern: one bit = one indicator segment. 0 - a, 1 - b ... 7 - h(dot).
+- `segments` - an 8-bit array. The ordinal number of the member of this array corresponds to the letter index of an indicator segment: 0 - a, 1 - b, <...>, 7 - h(dot).
