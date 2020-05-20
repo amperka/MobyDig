@@ -8,7 +8,7 @@ Creates an object of type `SegM8` to communicate with a chain of particular [Seg
 
 Constructs a new SegM8 object that uses the default hardware SPI bus.
 
-- `pinCS`: the chip select (also known as slave select) pin used to control the shift-register latch. It is marked `CS` on the SegM8 board. Any GPIO pin of the controller may be used.
+- `pinCS`: the chip select (also known as slave select) pin is used to control the shift-register latch. It is marked `CS` on the SegM8 board. Any GPIO pin of the controller may be used.
 - `deviceCount`: the number of SegM8 modules connected in a daisy-chain. If omitted, defines a single module.
 
 ### `SegM8(uint8_t pinCS, uint8_t pinMOSI, uint8_t pinSCK, uint8_t devicesCount = 1)`
