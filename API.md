@@ -40,7 +40,7 @@ Prints fixed `width` number or text line to the output buffer in current positio
 
 - `n`,`u`,`x`: integer or floating point numbers.
 - `s`: text line.
-- `width`: segM8 modules count needed for number or text representation.
+- `width`: a segM8 modules count, needed for number or text representation.
 - `precission`: in display float is a decimal places quantity.
 - `flags`: is formatting flags, you can add somewhat consistent flags separated by `+` or `|` sign.
 
@@ -59,4 +59,4 @@ The end of output transaction. Uploads output buffer to modules daisy-chain.
 
 Displays a custom symbol in the specified position.
 - `mask` - an 8-bit array. The ordinal number of the member of this array corresponds to the letter index of an indicator segment: 0 - a, 1 - b, <...>, 7 - h(dot).
-- `deviceIndex` - `SegM8` the device number in a daisy-chain. Can be in the range [0 : deviceCount-1].
+- `deviceIndex` - the SegM8 the device number in a daisy-chain. Can be in the range [0 : deviceCount-1].
