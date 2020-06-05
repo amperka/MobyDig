@@ -27,6 +27,34 @@ The difference between hardware and software SPI is interaction speed. Software 
 Initializes the given interface, prepares the board for the communication, and sets all module segments to the 'dark' state.
 Call this method before interacting with SegM8. For example, in the `setup()`.
 
+### `void startBatch(void)`
+
+The begin of output transaction. Moves current output pointer to begin of daisy-chain;
+
+### `void display(int n, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
+### `void display(unsigned int u, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
+### `void display(float x, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT)`
+### `void display(const char* s, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
+
+Prints fixed `width` number or text line to the output buffer in current position of output pointer, and move output pointer to the end of printed area.
+
+- `n`,`u`,`x`: integer or floating point numbers.
+- `s`: text line.
+- `width`: segM8 modules count needed for number or text representation.
+- `precission`: in display float is a decimal places quantity.
+- `flags`: is formatting flags, you can add somewhat consistent flags separated by `+` or `|` sign.
+
+Available formatting flags:
+- `SEGM8_ALIGN_RIGHT` - align to right corner
+- `SEGM8_ALIGN_LEFT` - align to left corner
+- `SEGM8_PAD_ZEROS` - add leading zeros before number, compatible only with SEGM8_ALIGN_RIGHT and integer numbers.
+- `SEGM8_RADIX_10` - use radix 10, only for unsigned int numbers.
+- `SEGM8_RADIX_16` - use radix 16, only for unsigned int numbers.
+
+### `void endBatch(void)`
+
+The end of output transaction. Uploads output buffer to modules daisy-chain.
+
 ### `void printf(const char* format, ...)`
 
 Displays a 'c'-formatted string in a chain of `SegM8` indicator modules. The format string syntax matches the standard C `printf` function. For example: `Clock.printf("%2d:%2d",hours,minutes);`
