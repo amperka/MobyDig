@@ -34,8 +34,8 @@ The 7-segment indicator output supports digits, excluding floats, and limited su
 More supported characters: space, underscore, dot, minus, degree (at `^`). Unsupported characters are displayed as `blank space`.
 **Important: Arduino `xprintf` functions do not support `%f` format specifier correctly. Convert float/double in a string before printing the result.**
 
-### `void setSegments(uint8_t device, uint8_t segments)`
+### `void writeSegments(uint8_t mask, uint8_t deviceIndex = 0)`
 
-Displays a special symbol in the specified position, or controls special modules, i.e. [Octofet board](https://my.amperka.com/modules/octofet)), arranged in a daisy-chain. Special modules can be used to emulate unsupported symbols: colon, semi-colon, plus, asterisk, etc. via plane LEDs or any other simple indicators.
-- `device` - `SegM8` the device number in a chain. Can be in the range [0 : devicesCount-1].
-- `segments` - an 8-bit array. The ordinal number of the member of this array corresponds to the letter index of an indicator segment: 0 - a, 1 - b, <...>, 7 - h(dot).
+Displays a custom symbol in the specified position.
+- `mask` - an 8-bit array. The ordinal number of the member of this array corresponds to the letter index of an indicator segment: 0 - a, 1 - b, <...>, 7 - h(dot).
+- `deviceIndex` - `SegM8` the device number in a daisy-chain. Can be in the range [0 : deviceCount-1].
