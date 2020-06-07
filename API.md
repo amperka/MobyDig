@@ -53,7 +53,7 @@ Available formatting flags:
 
 ### `void endBatch(void)`
 
-The end of output transaction. Uploads output buffer to modules daisy-chain.
+The end of the output transaction. Uploads output buffer to the modules in the daisy-chain.
 
 ### `void writeSegments(uint8_t mask, uint8_t deviceIndex = 0)`
 
