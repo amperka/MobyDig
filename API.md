@@ -47,7 +47,7 @@ Prints fixed `width` number or text line to the output buffer in the current pos
 Available formatting flags:
 - `SEGM8_ALIGN_RIGHT` - align to right corner
 - `SEGM8_ALIGN_LEFT` - align to left corner
-- `SEGM8_PAD_ZEROS` - add leading zeros before number, compatible only with SEGM8_ALIGN_RIGHT and integer numbers.
+- `SEGM8_PAD_ZEROS` - add leading zeros before the number. Compatible only with SEGM8_ALIGN_RIGHT and integer numbers.
 - `SEGM8_RADIX_10` - use radix 10, only for unsigned int numbers.
 - `SEGM8_RADIX_16` - use radix 16, only for unsigned int numbers.
 
