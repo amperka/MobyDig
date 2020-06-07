@@ -59,4 +59,4 @@ The end of the output transaction. Uploads output buffer to the modules in the d
 
 Displays a custom symbol in the specified position.
 - `mask` - an 8-bit array. The ordinal number of the member of this array corresponds to the letter index of an indicator segment: 0 - a, 1 - b, <...>, 7 - h(dot).
-- `deviceIndex` - the SegM8 the device number in a daisy-chain. Can be in the range [0 : deviceCount-1].
+- `deviceIndex` - A SegM8 device number in the daisy-chain. Can be in the range [0 : deviceCount-1].
