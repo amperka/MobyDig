@@ -36,7 +36,7 @@ The begin of output transaction. Moves current output pointer to the beginning o
 ### `void display(float x, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT)`
 ### `void display(const char* s, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
 
-Prints fixed `width` number or text line to the output buffer in current position of output pointer, and move output pointer to the end of printed area.
+Prints fixed `width` number or text line to the output buffer in the current position of output pointer and moves output pointer to the end of printed area.
 
 - `n`,`u`,`x`: integer or floating point numbers.
 - `s`: text line.
