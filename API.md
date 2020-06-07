@@ -41,7 +41,7 @@ Prints fixed `width` number or text line to the output buffer in the current pos
 - `n`,`u`,`x`: integer or floating point numbers.
 - `s`: text line.
 - `width`: a segM8 modules count, needed for number or text representation.
-- `precission`: in display float is a decimal places quantity.
+- `precission`: decimal places count of a float.
 - `flags`: is formatting flags, you can add somewhat consistent flags separated by `+` or `|` sign.
 
 Available formatting flags:
