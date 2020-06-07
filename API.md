@@ -42,7 +42,7 @@ Prints fixed `width` number or text line to the output buffer in the current pos
 - `s`: text line.
 - `width`: a segM8 modules count, needed for the number or text representation.
 - `precission`: decimal places count of a float.
-- `flags`: is formatting flags, you can add somewhat consistent flags separated by `+` or `|` sign.
+- `flags`: formatting flags. You can add somewhat consistent flags separated by `+` or `|` sign.
 
 Available formatting flags:
 - `SEGM8_ALIGN_RIGHT` - align to right corner
