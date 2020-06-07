@@ -29,7 +29,7 @@ Call this method before interacting with SegM8. For example, in the `setup()`.
 
 ### `void startBatch(void)`
 
-The begin of output transaction. Moves current output pointer to begin of daisy-chain;
+The begin of output transaction. Moves current output pointer to the beginning of the daisy-chain;
 
 ### `void display(int n, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
 ### `void display(unsigned int u, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
