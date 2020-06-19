@@ -27,10 +27,6 @@ The difference between hardware and software SPI is interaction speed. Software 
 Initializes the given interface, prepares the board for the communication, and sets all module segments to the 'dark' state.
 Call this method before interacting with SegM8. For example, in the `setup()`.
 
-### `void startBatch(void)`
-
-The begin of output transaction. Moves current output pointer to the beginning of the daisy-chain;
-
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
 ### `void display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
 ### `void display(float number, uint8_t position, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT)`
@@ -52,10 +48,6 @@ Available formatting flags:
 - `SEGM8_PAD_ZEROS` - add leading zeros before the number. Compatible only with SEGM8_ALIGN_RIGHT and integer numbers.
 - `SEGM8_RADIX_10` - use radix 10, only for unsigned int numbers.
 - `SEGM8_RADIX_16` - use radix 16, only for unsigned int numbers.
-
-### `void endBatch(void)`
-
-The end of the output transaction. Uploads output buffer to the modules in the daisy-chain.
 
 ### `void writeSegments(uint8_t mask, uint8_t deviceIndex = 0)`
 
