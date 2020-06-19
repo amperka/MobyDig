@@ -37,9 +37,11 @@ Call this method before interacting with SegM8. For example, in the `setup()`.
 
 Prints fixed `width` number or text line to the `position` of output buffer, using formatting `flags`.
 
+When printing text strings, the interpretation of characters in indicator segments is used; for unsupported characters `K, M, N, V, W, X, Z`, an `underscore` is displayed.
+
 - `number`: integer or floating point numbers.
 - `string`: text line.
-- `position`: start position of printed area.
+- `position`: start position of printable area.
 - `width`: a segM8 modules count, needed for the number or text representation.
 - `precission`: decimal places count of a float.
 - `flags`: formatting flags. You can add somewhat consistent flags separated by `+` or `|` sign.
