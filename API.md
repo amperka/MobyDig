@@ -31,16 +31,17 @@ Call this method before interacting with SegM8. For example, in the `setup()`.
 
 The begin of output transaction. Moves current output pointer to the beginning of the daisy-chain;
 
-### `void display(int number, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
-### `void display(unsigned int number, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
-### `void display(float number, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT)`
-### `void display(const char* string, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
-### `void display(String string, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
+### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
+### `void display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
+### `void display(float number, uint8_t position, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT)`
+### `void display(const char* string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
+### `void display(String string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
 
-Prints fixed `width` number or text line to the output buffer in the current position of output pointer and moves output pointer to the end of printed area.
+Prints fixed `width` number or text line to the `position` of output buffer, using formatting `flags`.
 
 - `number`: integer or floating point numbers.
 - `string`: text line.
+- `position`: start position of printed area.
 - `width`: a segM8 modules count, needed for the number or text representation.
 - `precission`: decimal places count of a float.
 - `flags`: formatting flags. You can add somewhat consistent flags separated by `+` or `|` sign.
