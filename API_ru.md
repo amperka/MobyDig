@@ -27,6 +27,10 @@ Hardware и software SPI отличаются скоростью обмена д
 Инициализирует интерфейс, очищает внутренний буфер, устанавливает все сегменты в состояние 'погашено'.
 Вызовите этот метод до начала взаимодействия с SegM8. Например в функции `setup()`.
 
+### `void clear()`
+
+Очищает все мегменты на модулях. Переводит их в состояние "погашено". Также очищает внутренний буфер.
+
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
 ### `void display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
 ### `void display(long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
