@@ -29,7 +29,7 @@ Hardware и software SPI отличаются скоростью обмена д
 
 ### `void clear()`
 
-Очищает все мегменты на модулях. Переводит их в состояние "погашено". Также очищает внутренний буфер.
+Очищает все сегменты на модулях. Переводит их в состояние "погашено". Также очищает внутренний буфер.
 
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
 ### `void display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
