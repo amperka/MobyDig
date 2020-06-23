@@ -13,7 +13,7 @@
 
 ### `SegM8(uint8_t pinCS, uint8_t pinDI, uint8_t pinCLK, uint8_t deviceCount = 1)`
 
-Создает новый объект SegM8 использующий Arduino software SPI интерфейс.
+Создает новый объект SegM8, использующий Arduino software SPI интерфейс.
 
 - `pinCS`: `chip select` (также известный как `slave select`) пин используется защелками сдвигового регистра. Помечен как `CS` на модуле SegM8. Можно использовать любой свободный  пин контроллера.
 - `pinDI`: `data input` - пин для передачи данных. Помечен как `DI` на модуле SegM8. В интерфейсе SPI соответствует MOSI (Master Out Slave In). Можно использовать любой свободный  пин контроллера.
