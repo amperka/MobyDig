@@ -32,7 +32,7 @@ Hardware и software SPI отличаются скоростью обмена д
 Очищает все сегменты на модулях. Переводит их в состояние «погашено». Также очищает внутренний буфер.
 
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
-### `void display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
+### `void display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10)`
 ### `void display(long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
 ### `void display(unsigned long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT + SEGM8_RADIX_10)`
 ### `void display(float number, uint8_t position, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT)`
