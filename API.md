@@ -32,11 +32,17 @@ Call this method before interacting with SegM8. For example, in the `setup()`.
 Sets all module segments to the 'dark' state.
 
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
+
 ### `void display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10)`
+
 ### `void display(long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
+
 ### `void display(unsigned long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10)`
+
 ### `void display(float number, uint8_t position, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT)`
+
 ### `void display(const char* string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
+
 ### `void display(String string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
 
 Prints fixed `width` number or text line to the `position` of output buffer, using formatting `flags`. Note: the `.` sign - does not occupy a separate module at the output, but is displayed in the previous module.
@@ -51,6 +57,7 @@ When printing text strings, the interpretation of characters in indicator segmen
 - `flags`: formatting flags. You can add somewhat consistent flags separated by `|` sign.
 
 Available formatting flags:
+
 - `SEGM8_ALIGN_RIGHT` — align to right corner. Default state.
 - `SEGM8_ALIGN_LEFT` — align to left corner
 - `SEGM8_PAD_ZEROS` — add leading zeros before the number. Compatible only with SEGM8_ALIGN_RIGHT.
@@ -60,5 +67,6 @@ Available formatting flags:
 ### `void writeSegments(uint8_t mask, uint8_t deviceIndex = 0)`
 
 Displays a custom symbol in the specified position.
+
 - `mask` — an 8-bit array. The ordinal number of the member of this array corresponds to the letter index of an indicator segment: 0–a, 1–b, <...>, 7–h(dot).
 - `deviceIndex` - A SegM8 device number in the daisy-chain. Can be in the range [0 : deviceCount−1].
