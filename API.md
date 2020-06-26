@@ -52,7 +52,7 @@ When printing text strings, the interpretation of characters in indicator segmen
 - `number`: integer or floating point numbers.
 - `string`: text line.
 - `position`: starting position of the output of a string or number in the internal buffer.
-- `width`: the number of elements of the internal buffer, and, accordingly, SegM8 modules, necessary for the number or text representation.
+- `width`: the number of elements in the internal buffer, and accordingly the number of SegM8 modules needed to display a number or a text.
 - `precission`: decimal places count of a float.
 - `flags`: formatting flags. You can add somewhat consistent flags separated by `|` sign.
 
