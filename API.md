@@ -2,7 +2,7 @@
 
 ## `class SegM8`
 
-Create an object of type `SegM8` to communicate with a chain of particular [SegM8 7-segment indicator modules](https://my.amperka.com/modules/SegM8).
+Create an object of type `SegM8` to communicate with a chain of a particular [SegM8 7-segment indicator modules](https://my.amperka.com/modules/SegM8).
 
 ### `SegM8(uint8_t pinCS, uint8_t deviceCount = 1)`
 
