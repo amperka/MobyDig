@@ -24,12 +24,12 @@ The difference between hardware and software SPI is interaction speed. Software 
 
 ### `void begin()`
 
-Initializes the given interface, prepares the board for the communication, and sets all module segments to the 'dark' state.
+Initializes the given interface, clear internal buffer, and sets all module segments to the 'dark' state.
 Call this method before interacting with SegM8. For example, in the `setup()`.
 
 ### `void clear()`
 
-Sets all module segments to the 'dark' state.
+Sets all module segments to the 'dark' state. Clear internal buffer.
 
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
 
@@ -45,14 +45,14 @@ Sets all module segments to the 'dark' state.
 
 ### `void display(String string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
 
-Prints fixed `width` number or text line to the `position` of output buffer, using formatting `flags`. Note: the `.` sign - does not occupy a separate module at the output, but is displayed in the previous module.
+Prints fixed `width` number or text line to the `position` of output buffer, using formatting `flags`. Moves the contents of the buffer to the indicator daisy-chain Note: the `.` sign does not occupy a separate module at the output, but is displayed in the previous module.
 
-When printing text strings, the interpretation of characters in indicator segments is used; for unsupported characters **K, M, N, V, W, X, Z**, an `underscore` is displayed.
+When printing text strings, the interpretation of characters in indicator segments is used; for unsupported characters **K, M, N, V, W, X, Z**, an `underscore` is displayed (segment **a**).
 
 - `number`: integer or floating point numbers.
 - `string`: text line.
-- `position`: start position of printable area.
-- `width`: a segM8 modules count, needed for the number or text representation.
+- `position`: starting position of the output of a string or number in the internal buffer.
+- `width`: the number of elements of the internal buffer, and, accordingly, SegM8 modules, necessary for the number or text representation.
 - `precission`: decimal places count of a float.
 - `flags`: formatting flags. You can add somewhat consistent flags separated by `|` sign.
 
