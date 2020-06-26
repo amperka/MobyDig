@@ -69,4 +69,4 @@ Available formatting flags:
 Displays a custom symbol in the specified position.
 
 - `mask` — an 8-bit array. The ordinal number of the member of this array corresponds to the letter index of an indicator segment: 0–a, 1–b, <...>, 7–h(dot).
-- `deviceIndex` - A SegM8 device number in the daisy-chain. Can be in the range [0 : deviceCount−1].
+- `deviceIndex` - A SegM8 device ordinal number in the daisy-chain. Can be in the range [0 : deviceCount−1].
