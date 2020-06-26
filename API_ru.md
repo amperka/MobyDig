@@ -32,11 +32,17 @@
 Очищает все сегменты на модулях. Переводит их в состояние «погашено». Также очищает внутренний буфер.
 
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
+
 ### `void display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10)`
+
 ### `void display(long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
+
 ### `void display(unsigned long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10)`
+
 ### `void display(float number, uint8_t position, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT)`
+
 ### `void display(const char* string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
+
 ### `void display(String string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
 
 Записывает число или текстовую строку, начиная с позиции `position`, шириной `width` знакомест во внутренний буфер. Форматирует его в соответствии с флагами `flags`. Затем выводит содержимое буфера в цепочку модулей. Замечание: знак `.` (точка) не занимает отдельного знакоместа при выводе, а выводится в предыдущем знакоместе.
@@ -51,6 +57,7 @@
 - `flags`: флаги форматирования. Можно добавить несколько, объединяя оператором `|`.
 
 Доступные флаги форматирования:
+
 - `SEGM8_ALIGN_RIGHT` — выровнить вправо, значение выравнивания по умолчанию.
 - `SEGM8_ALIGN_LEFT` — выровнить влево.
 - `SEGM8_PAD_ZEROS` — добавить лидирующие `0`. Флаг имеет смысл только для чисел, выравненных вправо.
@@ -60,5 +67,6 @@
 ### `void writeSegments(uint8_t mask, uint8_t deviceIndex = 0)`
 
 Отображает нестандартный символ в указанной позиции.
+
 - `mask` — массив из 8 бит. Порядковый номер бита в массиве соответствует сегменту модуля: 0–a, 1–b, <...>, 7–h(точка).
 - `deviceIndex` — порядковый номер модуля в цепочке устройств. Должен быть в пределах [0 : deviceCount−1].
