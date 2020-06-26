@@ -59,7 +59,7 @@ When printing text strings, the interpretation of characters in indicator segmen
 Available formatting flags:
 
 - `SEGM8_ALIGN_RIGHT` — align to right corner. Default state.
-- `SEGM8_ALIGN_LEFT` — align to left corner
+- `SEGM8_ALIGN_LEFT` — align to the left corner.
 - `SEGM8_PAD_ZEROS` — add leading zeros before the number. Compatible only with SEGM8_ALIGN_RIGHT.
 - `SEGM8_RADIX_10` — use radix 10. Default state.
 - `SEGM8_RADIX_16` — use radix 16, only for unsigned int numbers.
