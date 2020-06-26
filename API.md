@@ -24,12 +24,12 @@ The difference between hardware and software SPI is interaction speed. Software 
 
 ### `void begin()`
 
-Initializes the given interface, clear internal buffer, and sets all module segments to the 'dark' state.
+Initializes the given interface, clear internal buffer, and sets all module segments to the «dark» state.
 Call this method before interacting with SegM8. For example, in the `setup()`.
 
 ### `void clear()`
 
-Sets all module segments to the 'dark' state. Clear internal buffer.
+Sets all module segments to the «dark» state. Clear internal buffer.
 
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
 
