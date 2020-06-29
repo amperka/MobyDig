@@ -47,7 +47,7 @@ Sets all module segments to the “dark” state. Clears the internal buffer.
 
 Prints a number or a text line of a fixed `width` starting with the `position` to the output buffer using formatting `flags`. Moves the contents of the buffer to the indicator daisy-chain. Note: the `.` sign does not occupy a separate module and is displayed with the previous character.
 
-When printing text strings, the interpretation of characters in indicator segments is used. Instead of unsupported characters (e.g. **K, M, N, V, W, X, Z**) an `top underline` is displayed (segment **a**).
+When printing text strings, the interpretation of characters in indicator segments is used. Instead of unsupported characters (e.g. **K, M, V, W, X, Z**) an `top underline` is displayed (segment **a**).
 
 - `number`: integer or floating point numbers.
 - `string`: text line.
