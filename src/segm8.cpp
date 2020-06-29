@@ -104,13 +104,26 @@ void SegM8::clear() {
 void SegM8::display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT) {
     if (number < 0) {
         _spi.writeByte(S7_MINUS, position);
-        display((unsigned int)(-number), position + 1, width - 1, flags & 0b11111110);
+        display((unsigned long)(-number), position + 1, width - 1, flags & 0b11111110);
     } else {
-        display((unsigned int)(number), position, width, flags);
+        display((unsigned long)(number), position, width, flags);
     }
 }
 
 void SegM8::display(unsigned int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10) {
+    display((unsigned long)number, position, width, flags);
+}
+
+void SegM8::display(long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT) {
+    if (number < 0) {
+        _spi.writeByte(S7_MINUS, position);
+        display((unsigned long)(-number), position + 1, width - 1, flags & 0b11111110);
+    } else {
+        display((unsigned long)(number), position, width, flags);
+    }
+}
+
+void SegM8::display(unsigned long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10) {
     uint8_t index = sizeof(_buffer) - 1;
     uint8_t radix = (flags & SEGM8_RADIX_16) ? 16 : 10;
     for (uint8_t i = 0; i < sizeof(_buffer); i++)
@@ -132,19 +145,49 @@ void SegM8::display(unsigned int number, uint8_t position, uint8_t width, uint8_
     display(&_buffer[index], position, width, flags);
 }
 
-void SegM8::display(long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT) {
-    if (number < 0) {
-        _spi.writeByte(S7_MINUS, position);
-        display((unsigned long)(-number), position + 1, width - 1, flags & 0b11111110);
-    } else {
-        display((unsigned long)(number), position, width, flags);
-    }
-}
-
-void SegM8::display(unsigned long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10) {
-}
-
 void SegM8::display(float number, uint8_t position, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT) {
+    uint8_t index = sizeof(_buffer) - 1;
+    for (uint8_t i = 0; i < sizeof(_buffer); i++)
+        _buffer[i] = 0;
+
+    long prec = 1;
+    for(uint8_t i = 0; i < precission; i++)
+        prec *= 10;
+
+    long bothParts = number * prec;
+    long rightPart = bothParts % prec;
+    long leftPart = (long) number;
+
+    if (rightPart == 0) {
+        for(uint8_t i = 0; i < precission; i++)
+            _buffer[index--] = '0';
+    } else {
+        for (uint8_t i = index; i > 0; i--) {
+            _buffer[i] = numbersFont[rightPart % 10];
+            rightPart /= 10;
+            if ((rightPart == 0 && !(flags & SEGM8_PAD_ZEROS)) || i + width < sizeof(_buffer) - 1) {
+                index = i;
+                break;
+            }
+        }
+    }
+    
+    _buffer[index--] = '.';
+    
+    if (rightPart == 0) {
+        _buffer[index] = '0';
+    } else {
+        for (uint8_t i = index; i > 0; i--) {
+            _buffer[i] = numbersFont[rightPart % 10];
+            rightPart /= 10;
+            if ((rightPart == 0 && !(flags & SEGM8_PAD_ZEROS)) || i + width < sizeof(_buffer) - 1) {
+                index = i;
+                break;
+            }
+        }
+    }
+
+    display(&_buffer[index], position, width, flags);
 }
 
 void SegM8::display(const char* string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT) {
