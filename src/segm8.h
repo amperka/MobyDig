@@ -1,8 +1,8 @@
 #ifndef __SEGM8_H__
 #define __SEGM8_H__
 
-#include "spi2parallel.h"
 #include "font7seg.h"
+#include "spi2parallel.h"
 #include <Arduino.h>
 #include <SPI.h>
 
@@ -25,8 +25,9 @@ public:
     void display(unsigned long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10);
     void display(float number, uint8_t position, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT);
     void display(const char* string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT);
-    void display(String  string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT);
+    void display(String string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT);
     void writeSegments(uint8_t mask, uint8_t deviceIndex = 0);
+
 private:
     Spi2Parallel _spi;
     uint8_t _deviceCount;
