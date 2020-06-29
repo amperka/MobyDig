@@ -34,6 +34,7 @@ public:
     void display(long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT);
     void display(unsigned long number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10);
     void display(float number, uint8_t position, uint8_t width, uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT);
+    void display(char* string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT);
     void display(const char* string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT);
     void display(String string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT);
     void writeSegments(uint8_t mask, uint8_t deviceIndex = 0);
