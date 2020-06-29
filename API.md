@@ -24,7 +24,7 @@ Hardware and software SPI differ in interaction speed. Software SPI runs slower 
 
 ### `void begin()`
 
-Initializes the given interface, clears the internal buffer, and sets all module segments to the «dark» state.
+Initializes the given interface, clears the internal buffer, and sets all module segments to the “dark” state.
 Call this method before interacting with SegM8. For example, in the `setup()`.
 
 ### `void clear()`
