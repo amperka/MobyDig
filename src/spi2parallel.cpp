@@ -1,3 +1,13 @@
+/*
+ * This file is a part of spi2parallel library.
+ *
+ * Product page: https://amperka.ru/product/SegM8
+ * © Amperka LLC (https://amperka.com, dev@amperka.com)
+ * 
+ * Author: Yury Botov <by@amperka.com>
+ * License: GPLv3, all text here must be included in any redistribution.
+ */
+
 #include "spi2parallel.h"
 
 Spi2Parallel::Spi2Parallel(uint8_t pinCS, uint8_t deviceCount, uint8_t bitOrder)

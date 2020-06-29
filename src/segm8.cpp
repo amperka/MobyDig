@@ -1,3 +1,13 @@
+/*
+ * This file is a part of SegM8 library.
+ *
+ * Product page: https://amperka.ru/product/SegM8
+ * © Amperka LLC (https://amperka.com, dev@amperka.com)
+ * 
+ * Author: Yury Botov <by@amperka.com>
+ * License: GPLv3, all text here must be included in any redistribution.
+ */
+
 #include "segm8.h"
 
 const static uint8_t numbersFont[] = { S7_0, S7_1, S7_2, S7_3, S7_4, S7_5,
