@@ -29,7 +29,7 @@ Call this method before interacting with SegM8. For example, in the `setup()`.
 
 ### `void clear()`
 
-Sets all module segments to the «dark» state. Clears the internal buffer.
+Sets all module segments to the “dark” state. Clears the internal buffer.
 
 ### `void display(int number, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_RIGHT)`
 
