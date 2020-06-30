@@ -10,27 +10,23 @@
 
 #include "segm8.h"
 
-/*const static uint8_t numbersFont[] = {S7_0, S7_1, S7_2, S7_3, S7_4, S7_5,
-                                      S7_6, S7_7, S7_8, S7_9, S7_A, S7_B,
-                                      S7_C, S7_D, S7_E, S7_F};*/
-
 const static uint8_t font[] = {
-    S7_SPACE,         // space
+    S7_SPACE,         // space (all off)
     S7_TOP_UNDERLINE, // !
-    S7_TOP_UNDERLINE, // "
+    S7_DOUBLE_QUOTE,  // "
     S7_TOP_UNDERLINE, // #
     S7_TOP_UNDERLINE, // $
     S7_TOP_UNDERLINE, // %
     S7_TOP_UNDERLINE, // &
-    S7_TOP_UNDERLINE, // '
+    S7_QUOTE,         // '
     S7_TOP_UNDERLINE, // (
     S7_TOP_UNDERLINE, // )
     S7_TOP_UNDERLINE, // *
     S7_TOP_UNDERLINE, // +
-    S7_TOP_UNDERLINE, // ,
+    S7_COMMA,         // ,
     S7_MINUS,         // -
     S7_DOT,           // .
-    S7_TOP_UNDERLINE, // /
+    S7_SLASH,         // /
     S7_0,             // 0
     S7_1,             // 1
     S7_2,             // 2
@@ -44,7 +40,7 @@ const static uint8_t font[] = {
     S7_TOP_UNDERLINE, // :
     S7_TOP_UNDERLINE, // ;
     S7_TOP_UNDERLINE, // <
-    S7_TOP_UNDERLINE, // =
+    S7_EQUAL,         // =
     S7_TOP_UNDERLINE, // >
     S7_TOP_UNDERLINE, // ?
     S7_TOP_UNDERLINE, // @
@@ -74,9 +70,9 @@ const static uint8_t font[] = {
     S7_TOP_UNDERLINE, // X
     S7_Y,             // Y
     S7_TOP_UNDERLINE, // Z
-    S7_TOP_UNDERLINE, // [
-    S7_TOP_UNDERLINE, // `\`
-    S7_TOP_UNDERLINE, // ]
+    S7_LEFT,          // [
+    S7_BACK_SLASH,    // '\'
+    S7_RIGHT,         // ]
     S7_DEGREE,        // ^
     S7_UNDERSCORE,    // _
 };
@@ -112,14 +108,14 @@ void SegM8::begin() {
 
 void SegM8::clear() {
   for (uint8_t i = 0; i < _spi.chainLength(); i++)
-    _spi.writeByte(S7_SPACE, i);
+    _spi.writeByte(decode(' '), i);
   _spi.update();
 }
 
 void SegM8::display(int number, uint8_t position, uint8_t width,
                     uint8_t flags) {
   if (number < 0) {
-    _spi.writeByte(S7_MINUS, position);
+    _spi.writeByte(decode('-'), position);
     display((unsigned long)(-number), position + 1, width - 1,
             flags & 0b11111110);
   } else {
@@ -135,7 +131,7 @@ void SegM8::display(unsigned int number, uint8_t position, uint8_t width,
 void SegM8::display(long number, uint8_t position, uint8_t width,
                     uint8_t flags) {
   if (number < 0) {
-    _spi.writeByte(S7_MINUS, position);
+    _spi.writeByte(decode('-'), position);
     display((unsigned long)(-number), position + 1, width - 1,
             flags & 0b11111110);
   } else {

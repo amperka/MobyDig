@@ -26,12 +26,21 @@
                *7
  */
 
-constexpr uint8_t S7_SPACE = 0b00000000;
-constexpr uint8_t S7_DOT = 0b10000000;
-constexpr uint8_t S7_MINUS = 0b01000000;
+constexpr uint8_t S7_SPACE = 0b00000000; // " "
+constexpr uint8_t S7_DOT = 0b10000000; // "."
+
+constexpr uint8_t S7_MINUS = 0b01000000; // "-"
+constexpr uint8_t S7_DOUBLE_QUOTE = 0b00100010; // '"'
+constexpr uint8_t S7_QUOTE = 0b00100000; // "'"
+constexpr uint8_t S7_COMMA = 0b00010000; // ","
+constexpr uint8_t S7_SLASH = 0b01010010; // "/"
+constexpr uint8_t S7_EQUAL = 0b01001000; // "="
+constexpr uint8_t S7_LEFT = 0b00111001; // "["
+constexpr uint8_t S7_RIGHT = 0b00001111; // "]"
+constexpr uint8_t S7_BACK_SLASH = 0b01100100; // "\"
 
 constexpr uint8_t S7_TOP_UNDERLINE = 0b00000001;
-constexpr uint8_t S7_UNDERSCORE = 0b0001000;
+constexpr uint8_t S7_UNDERSCORE = 0b0001000; // "_"
 constexpr uint8_t S7_DEGREE = 0b01100011;
 constexpr uint8_t S7_UNDER_DEGREE = 0b01011100;
 
