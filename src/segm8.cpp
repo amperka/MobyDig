@@ -160,7 +160,7 @@ void SegM8::display(unsigned long number, uint8_t position, uint8_t width,
     }
   }
 
-  display((char *)&_buffer[index], position, width, flags);
+  display((const char *)&_buffer[index], position, width, flags);
 }
 
 void SegM8::display(float number, uint8_t position, uint8_t width,
@@ -208,40 +208,7 @@ void SegM8::display(float number, uint8_t position, uint8_t width,
     }
   }
 
-  display((char *)&_buffer[index], position, width, flags);
-}
-
-void SegM8::display(char *string, uint8_t position, uint8_t width,
-                    uint8_t flags) {
-  uint8_t beginPosition;
-  uint8_t endPosition;
-  uint8_t j = 0;
-
-  if (flags && SEGM8_ALIGN_LEFT) {
-    beginPosition = min(position, _spi.chainLength());
-    endPosition =
-        min(_spi.chainLength(), (position + min(width, strlen(string))));
-  } else { // SEGM8_ALIGN_RIGHT
-    beginPosition =
-        min((position + (width - strlen(string))), _spi.chainLength());
-    endPosition = min(_spi.chainLength(), (position + width));
-  }
-
-  for (uint8_t i = position; i < beginPosition; i++)
-    _spi.writeByte(S7_SPACE, i);
-  for (uint8_t i = beginPosition; i < endPosition; /*really blank*/) {
-    if (string[i - beginPosition] == '.') {
-      _spi.writeByte(decode(string[j - 1] | S7_DOT), i - 1);
-      j++;
-    } else {
-      _spi.writeByte(decode(string[j++]), i++);
-    }
-  }
-  for (uint8_t i = endPosition; i < min(_spi.chainLength(), (position + width));
-       i++)
-    _spi.writeByte(S7_SPACE, i);
-
-  _spi.update();
+  display((const char *)&_buffer[index], position, width, flags);
 }
 
 void SegM8::display(const char *string, uint8_t position, uint8_t width,
