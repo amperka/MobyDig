@@ -52,4 +52,4 @@ private:
     uint8_t _buffer[11];
 };
 
-#endif // __OCTOFET_H__
+#endif // __SEGM8_H__
