@@ -145,9 +145,12 @@ void SegM8::display(uint32_t number, uint8_t position, uint8_t width,
     uint8_t flags) {
     uint8_t index = sizeof(_buffer) - 2;
     uint8_t radix = (flags & SEGM8_RADIX_16) ? 16 : 10;
+
+    // clear buffer
     for (uint8_t i = 0; i < sizeof(_buffer); i++)
         _buffer[i] = 0;
 
+    // fill buffer
     if (number == 0) {
         _buffer[index] = decodeDigit(0);
     } else {
@@ -161,7 +164,14 @@ void SegM8::display(uint32_t number, uint8_t position, uint8_t width,
         }
     }
 
-    display((const char*)&_buffer[index], position, width, flags);
+    // test result width and display buffer
+    if (strlen((const char*)&_buffer[index]) < width)
+        display((const char*)&_buffer[index], position, width, flags);
+    else {
+        for (uint8_t i = 0; i < sizeof(_buffer); i++)
+            _buffer[i] = '!';
+        display((const char*)&_buffer[sizeof(_buffer) - 2 - width], position, width, flags);
+    }
 }
 
 void SegM8::display(float number, uint8_t position, uint8_t width,
@@ -207,7 +217,13 @@ void SegM8::display(float number, uint8_t position, uint8_t width,
         }
     }
 
-    display((const char*)&_buffer[index], position, width, flags);
+    if (strlen((const char*)&_buffer[index]) - 1 < width)
+        display((const char*)&_buffer[index], position, width, flags);
+    else {
+        for (uint8_t i = 0; i < sizeof(_buffer); i++)
+            _buffer[i] = '!';
+        display((const char*)&_buffer[sizeof(_buffer) - 2 - width], position, width, flags);
+    }
 }
 
 void SegM8::display(const char* string, uint8_t position, uint8_t width,
