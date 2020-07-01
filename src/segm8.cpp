@@ -114,34 +114,34 @@ void SegM8::clear() {
     _spi.update();
 }
 
-void SegM8::display(int number, uint8_t position, uint8_t width,
+void SegM8::display(int16_t number, uint8_t position, uint8_t width,
     uint8_t flags) {
     if (number < 0) {
         _spi.writeByte(decode('-'), position);
-        display((unsigned long)(-number), position + 1, width - 1,
+        display((uint32_t)(-number), position + 1, width - 1,
             flags & 0b11111110);
     } else {
-        display((unsigned long)(number), position, width, flags);
+        display((uint32_t)(number), position, width, flags);
     }
 }
 
 void SegM8::display(unsigned int number, uint8_t position, uint8_t width,
     uint8_t flags) {
-    display((unsigned long)number, position, width, flags);
+    display((uint32_t)number, position, width, flags);
 }
 
-void SegM8::display(long number, uint8_t position, uint8_t width,
+void SegM8::display(int32_t number, uint8_t position, uint8_t width,
     uint8_t flags) {
     if (number < 0) {
         _spi.writeByte(decode('-'), position);
-        display((unsigned long)(-number), position + 1, width - 1,
+        display((uint32_t)(-number), position + 1, width - 1,
             flags & 0b11111110);
     } else {
-        display((unsigned long)(number), position, width, flags);
+        display((uint32_t)(number), position, width, flags);
     }
 }
 
-void SegM8::display(unsigned long number, uint8_t position, uint8_t width,
+void SegM8::display(uint32_t number, uint8_t position, uint8_t width,
     uint8_t flags) {
     uint8_t index = sizeof(_buffer) - 2;
     uint8_t radix = (flags & SEGM8_RADIX_16) ? 16 : 10;
