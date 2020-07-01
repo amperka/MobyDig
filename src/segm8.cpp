@@ -216,7 +216,7 @@ void SegM8::display(const char* string, uint8_t position, uint8_t width,
     uint8_t endPosition;
     uint8_t j = 0;
 
-    if (flags && SEGM8_ALIGN_LEFT) {
+    if (flags & SEGM8_ALIGN_LEFT) {
         beginPosition = min(position, _spi.chainLength());
         endPosition = min(_spi.chainLength(), (position + min(width, strlen(string))));
     } else { // SEGM8_ALIGN_RIGHT
@@ -247,7 +247,7 @@ void SegM8::display(String string, uint8_t position, uint8_t width,
     uint8_t endPosition;
     uint8_t j = 0;
 
-    if (flags && SEGM8_ALIGN_LEFT) {
+    if (flags & SEGM8_ALIGN_LEFT) {
         beginPosition = min(position, _spi.chainLength());
         endPosition = min(_spi.chainLength(), (position + min(width, string.length())));
     } else { // SEGM8_ALIGN_RIGHT
