@@ -23,6 +23,9 @@ constexpr uint8_t SEGM8_PAD_ZEROS = 2;
 constexpr uint8_t SEGM8_RADIX_10 = 0;
 constexpr uint8_t SEGM8_RADIX_16 = 4;
 
+constexpr uint8_t SEGM8_POSITIVE = 0;
+constexpr uint8_t SEGM8_NEGATIVE = 8;
+
 class SegM8 {
 public:
     SegM8(uint8_t pinCS, uint8_t deviceCount = 1);
