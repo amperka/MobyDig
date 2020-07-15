@@ -116,8 +116,7 @@ void SegM8::clear() {
     _spi.update();
 }
 
-void SegM8::display(int16_t number, uint8_t position, uint8_t width,
-    uint8_t flags) {
+void SegM8::display(int16_t number, uint8_t position, uint8_t width, uint8_t flags) {
     if (number < 0) {
         display((uint32_t)(-number), position, width,
             (flags & 0b11111011) | SEGM8_NEGATIVE);
@@ -126,13 +125,11 @@ void SegM8::display(int16_t number, uint8_t position, uint8_t width,
     }
 }
 
-void SegM8::display(unsigned int number, uint8_t position, uint8_t width,
-    uint8_t flags) {
+void SegM8::display(uint16_t number, uint8_t position, uint8_t width, uint8_t flags) {
     display((uint32_t)number, position, width, flags | SEGM8_POSITIVE);
 }
 
-void SegM8::display(int32_t number, uint8_t position, uint8_t width,
-    uint8_t flags) {
+void SegM8::display(int32_t number, uint8_t position, uint8_t width, uint8_t flags) {
     if (number < 0) {
         display((uint32_t)(-number), position, width,
             (flags & 0b11111011) | SEGM8_NEGATIVE);
@@ -141,8 +138,7 @@ void SegM8::display(int32_t number, uint8_t position, uint8_t width,
     }
 }
 
-void SegM8::display(uint32_t number, uint8_t position, uint8_t width,
-    uint8_t flags) {
+void SegM8::display(uint32_t number, uint8_t position, uint8_t width, uint8_t flags) {
     uint8_t index = sizeof(_buffer) - 2;
     uint8_t radix = (flags & SEGM8_RADIX_16) ? 16 : 10;
     uint8_t w = width;
@@ -167,7 +163,9 @@ void SegM8::display(uint32_t number, uint8_t position, uint8_t width,
             _buffer[i] = decodeDigit(number % radix);
             number /= radix;
             w--;
-            if ((number == 0 && (!(flags & SEGM8_PAD_ZEROS))) || ((number == 0 && ((flags & SEGM8_PAD_ZEROS))) && ((!(flags & SEGM8_NEGATIVE)) && w <= 0)) || ((number == 0 && ((flags & SEGM8_PAD_ZEROS))) && ((flags & SEGM8_NEGATIVE) && w <= 1))) {
+            if ((number == 0 && (!(flags & SEGM8_PAD_ZEROS))) || ((number == 0 && ((flags & SEGM8_PAD_ZEROS))) &&
+                ((!(flags & SEGM8_NEGATIVE)) && w <= 0)) || ((number == 0 && ((flags & SEGM8_PAD_ZEROS))) &&
+                ((flags & SEGM8_NEGATIVE) && w <= 1))) {
                 index = i;
                 break;
             }
@@ -190,8 +188,7 @@ void SegM8::display(uint32_t number, uint8_t position, uint8_t width,
     }
 }
 
-void SegM8::display(float number, uint8_t position, uint8_t width,
-    uint8_t precission, uint8_t flags) {
+void SegM8::display(float number, uint8_t position, uint8_t width, uint8_t precission, uint8_t flags) {
     for (uint8_t i = 0; i < sizeof(_buffer); i++)
         _buffer[i] = 0;
 
@@ -208,8 +205,7 @@ void SegM8::display(float number, uint8_t position, uint8_t width,
     display(rightPart, position + width - precission, precission, SEGM8_ALIGN_RIGHT | SEGM8_PAD_ZEROS);
 }
 
-void SegM8::display(const char* string, uint8_t position, uint8_t width,
-    uint8_t flags) {
+void SegM8::display(const char* string, uint8_t position, uint8_t width, uint8_t flags) {
     uint8_t beginPosition;
     uint8_t endPosition;
     uint8_t j = 0, i = 0;
@@ -240,8 +236,7 @@ void SegM8::display(const char* string, uint8_t position, uint8_t width,
     _spi.update();
 }
 
-void SegM8::display(String string, uint8_t position, uint8_t width,
-    uint8_t flags) {
+void SegM8::display(String string, uint8_t position, uint8_t width, uint8_t flags) {
     uint8_t beginPosition;
     uint8_t endPosition;
     uint8_t j = 0, i = 0;

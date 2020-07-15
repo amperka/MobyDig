@@ -23,8 +23,8 @@ constexpr uint8_t SEGM8_PAD_ZEROS = 2;
 constexpr uint8_t SEGM8_RADIX_10 = 0;
 constexpr uint8_t SEGM8_RADIX_16 = 4;
 
-constexpr uint8_t SEGM8_POSITIVE = 0;
-constexpr uint8_t SEGM8_NEGATIVE = 8;
+constexpr uint8_t SEGM8_POSITIVE = 0; // internal flag
+constexpr uint8_t SEGM8_NEGATIVE = 8; // internal flag
 
 class SegM8 {
 public:
