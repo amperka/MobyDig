@@ -2,7 +2,7 @@
 
 SegM8 module(10, 1);
 int counter = 0;
-char* symbol = (char*)" ";
+char symbol[2] = " ";
 
 void setup() {
     module.begin();
