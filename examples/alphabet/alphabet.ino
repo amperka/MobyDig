@@ -24,7 +24,7 @@ void loop() {
     // convert the character number to its code
     symbol[0] = (' ' + counter++);
     // display character
-    module.display((const char*)symbol, 0, 1);
+    module.display(symbol, 0, 1);
     
     delay(700);
 }
