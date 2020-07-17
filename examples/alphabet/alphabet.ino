@@ -1,7 +1,7 @@
 #include "segm8.h"
 
 SegM8 module(10, 1);
-int counter = 64;
+int counter = 0;
 char* symbol = (char*)" ";
 
 void setup() {
