@@ -18,7 +18,6 @@
 
 constexpr uint8_t SEGM8_ALIGN_RIGHT = 0;
 constexpr uint8_t SEGM8_ALIGN_LEFT = 1;
-// constexpr uint8_t SEGM8_NO_PAD_ZEROS = 0; ??
 constexpr uint8_t SEGM8_PAD_ZEROS = 2;
 constexpr uint8_t SEGM8_RADIX_10 = 0;
 constexpr uint8_t SEGM8_RADIX_16 = 4;
