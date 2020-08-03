@@ -1,0 +1,28 @@
+#######################################
+# Syntax Coloring Map Dragster
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SegM8	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+clear   KEYWORD2
+display	KEYWORD2
+writeSegments	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+SEGM8_ALIGN_RIGHT   LITERAL1
+SEGM8_ALIGN_LEFT    LITERAL1
+SEGM8_PAD_ZEROS LITERAL1
+SEGM8_RADIX_10  LITERAL1
+SEGM8_RADIX_16  LITERAL1
