@@ -188,7 +188,7 @@ void SegM8::display(uint32_t number, uint8_t position, uint8_t width, uint8_t fl
     }
 }
 
-void SegM8::display(float number, uint8_t position, uint8_t width, uint8_t precission, uint8_t flags) {
+void SegM8::display(double number, uint8_t position, uint8_t width, uint8_t precission, uint8_t flags) {
     for (uint8_t i = 0; i < sizeof(_buffer); i++)
         _buffer[i] = 0;
 
