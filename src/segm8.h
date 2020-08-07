@@ -51,7 +51,7 @@ public:
 private:
     Spi2Parallel _spi;
     uint8_t _deviceCount;
-    uint8_t _buffer[11];
+    uint8_t _buffer[17];
 };
 
 #endif // __SEGM8_H__
