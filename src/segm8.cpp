@@ -222,8 +222,20 @@ void SegM8::display(double number, uint8_t position, uint8_t width, uint8_t prec
         };
     }
 
-    if (isNegative && index > 0) // store sign
+    if (isNegative && index > 0) { // store sign
+        if (flags & SEGM8_PAD_ZEROS) {
+            while ((int8_t)(sizeof(_buffer) - 2 - index) < (int8_t)(width - 1)) {
+                _buffer[--index] = '0';
+            }
+        }
         _buffer[--index] = '-';
+    } else {
+        if (flags & SEGM8_PAD_ZEROS) {
+            while ((int8_t)(sizeof(_buffer) - 2 - index) < (int8_t)width) {
+                _buffer[--index] = '0';
+            }
+        }
+    }
 
     display((const char*)&_buffer[index], position, width, flags); // print!
 }
