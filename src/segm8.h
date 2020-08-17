@@ -40,7 +40,7 @@ public:
         uint8_t flags = SEGM8_ALIGN_RIGHT);
     void display(uint32_t number, uint8_t position, uint8_t width,
         uint8_t flags = SEGM8_ALIGN_RIGHT | SEGM8_RADIX_10);
-    void display(float number, uint8_t position, uint8_t width,
+    void display(double number, uint8_t position, uint8_t width,
         uint8_t precission = 1, uint8_t flags = SEGM8_ALIGN_LEFT);
     void display(const char* string, uint8_t position, uint8_t width,
         uint8_t flags = SEGM8_ALIGN_LEFT);
@@ -51,7 +51,7 @@ public:
 private:
     Spi2Parallel _spi;
     uint8_t _deviceCount;
-    uint8_t _buffer[11];
+    uint8_t _buffer[17];
 };
 
 #endif // __SEGM8_H__
