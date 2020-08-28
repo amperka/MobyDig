@@ -26,7 +26,7 @@ const static uint8_t font[] = {
     S7_COMMA, // ,
     S7_MINUS, // -
     S7_DOT, // .
-    S7_SLASH, // /
+    S7_TOP_UNDERLINE, // /
     S7_0, // 0
     S7_1, // 1
     S7_2, // 2
@@ -71,7 +71,7 @@ const static uint8_t font[] = {
     S7_Y, // Y
     S7_TOP_UNDERLINE, // Z
     S7_LEFT, // [
-    S7_BACK_SLASH, // '\'
+    S7_TOP_UNDERLINE, // '\'
     S7_RIGHT, // ]
     S7_DEGREE, // ^
     S7_UNDERSCORE, // _
