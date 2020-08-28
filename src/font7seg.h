@@ -40,7 +40,6 @@ constexpr uint8_t S7_RIGHT = 0b00001111; // "]"
 constexpr uint8_t S7_TOP_UNDERLINE = 0b00000001;
 constexpr uint8_t S7_UNDERSCORE = 0b0001000; // "_"
 constexpr uint8_t S7_DEGREE = 0b01100011;
-constexpr uint8_t S7_UNDER_DEGREE = 0b01011100;
 
 constexpr uint8_t S7_0 = 0b00111111; // "0"
 constexpr uint8_t S7_1 = 0b00000110; // "1"
