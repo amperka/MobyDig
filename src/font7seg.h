@@ -33,16 +33,13 @@ constexpr uint8_t S7_MINUS = 0b01000000; // "-"
 constexpr uint8_t S7_DOUBLE_QUOTE = 0b00100010; // '"'
 constexpr uint8_t S7_QUOTE = 0b00100000; // "'"
 constexpr uint8_t S7_COMMA = 0b00010000; // ","
-constexpr uint8_t S7_SLASH = 0b01010010; // "/"
 constexpr uint8_t S7_EQUAL = 0b01001000; // "="
 constexpr uint8_t S7_LEFT = 0b00111001; // "["
 constexpr uint8_t S7_RIGHT = 0b00001111; // "]"
-constexpr uint8_t S7_BACK_SLASH = 0b01100100; // "\"
 
 constexpr uint8_t S7_TOP_UNDERLINE = 0b00000001;
 constexpr uint8_t S7_UNDERSCORE = 0b0001000; // "_"
 constexpr uint8_t S7_DEGREE = 0b01100011;
-constexpr uint8_t S7_UNDER_DEGREE = 0b01011100;
 
 constexpr uint8_t S7_0 = 0b00111111; // "0"
 constexpr uint8_t S7_1 = 0b00000110; // "1"
@@ -57,7 +54,7 @@ constexpr uint8_t S7_9 = 0b01101111; // "9"
 
 constexpr uint8_t S7_A = 0b01110111; // "A"
 constexpr uint8_t S7_B = 0b01111100; // "b"
-constexpr uint8_t S7_C = 0b00111001; // "C"
+constexpr uint8_t S7_C = 0b01011000; // "c"
 constexpr uint8_t S7_D = 0b01011110; // "d"
 constexpr uint8_t S7_E = 0b01111001; // "E"
 constexpr uint8_t S7_F = 0b01110001; // "F"
@@ -69,7 +66,7 @@ constexpr uint8_t S7_K = S7_TOP_UNDERLINE;
 constexpr uint8_t S7_L = 0b00111000; // "L"
 constexpr uint8_t S7_M = S7_TOP_UNDERLINE;
 constexpr uint8_t S7_N = 0b01010100; // "n"
-constexpr uint8_t S7_O = S7_0; // "O"
+constexpr uint8_t S7_O = 0b01011100; // "o"
 constexpr uint8_t S7_P = 0b01110011; // "P"
 constexpr uint8_t S7_Q = 0b01100111; // "q"
 constexpr uint8_t S7_R = 0b01010000; // "r"
