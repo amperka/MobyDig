@@ -45,7 +45,7 @@ Sets all module segments to the “dark” state. Clears the internal buffer.
 
 ### `void display(String string, uint8_t position, uint8_t width, uint8_t flags = SEGM8_ALIGN_LEFT)`
 
-Prints a number or a text line of a fixed `width` starting with the `position` to the output buffer using formatting `flags`. Moves the contents of the buffer to the indicator daisy-chain. Note: the `.` sign does not occupy a separate module and is displayed with the previous character.
+Prints a number or a text line of a fixed `width` starting with the `position` to the output buffer using formatting `flags`. Moves the contents of the buffer to the indicator daisy-chain. Note: in cases when there is another character before the `.` (dot) sign, it does not occupy a separate module, but is displayed in the previous module.
 
 When printing text strings, the interpretation of characters in indicator segments is used. Instead of unsupported characters (e.g. **K, M, V, W, X, Z**) an overline is displayed (segment **a**).
 

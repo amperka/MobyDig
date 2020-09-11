@@ -247,16 +247,25 @@ void SegM8::display(const char* string, uint8_t position, uint8_t width, uint8_t
 
     uint8_t trueLength = 0; // used chars in the input buffer
     uint8_t trueWidth = 0; // length of result
-    for (i = 0; true; i++) {
-        if (string[i] == 0) // end of string
-            break;
-        else if (trueWidth == width) // calculation end
-            break;
-        else if (string[i] == '.') {
-            trueWidth--;
+
+    uint8_t prev = 0;
+    uint8_t curr = 0;
+    uint8_t buf[32]; // define maximum field size as 32 modules
+
+    for(i = 0; i < strlen(string) && trueLength < 32; i++) {
+        curr = string[i];
+        if(curr == '.' && (prev == 0 || prev == '.')) { // first symbol is dot or dot after dot
+            buf[trueLength++] = S7_SPACE | S7_DOT;
+            trueWidth++;
+        } else if(curr == '.') { // dot after character
+            buf[trueLength - 1] = buf[trueLength - 1] | S7_DOT;
+        } else { // character
+            buf[trueLength++] = decode(curr);
+            trueWidth++;
         }
-        trueLength++;
-        trueWidth++;
+        if(trueWidth == width && (curr == '.' || string[i+1] != '.'))
+            break;
+        prev = curr;
     }
 
     if (flags & SEGM8_ALIGN_LEFT) {
@@ -275,16 +284,10 @@ void SegM8::display(const char* string, uint8_t position, uint8_t width, uint8_t
         _spi.writeByte(S7_SPACE, i);
 
     i = beginPosition;
-    for (j = 0; j < trueLength; j++) {
-        if (string[j] == '.') {
-            _spi.writeByte(decode(string[j - 1]) | S7_DOT, i - 1);
-        } else {
-            _spi.writeByte(decode(string[j]), i++);
-        }
-    }
-    if (string[j] == '.') {
-        _spi.writeByte(decode(string[j - 1]) | S7_DOT, i - 1);
-    }
+
+    for(j = 0; j < trueWidth; j++)
+        _spi.writeByte(buf[j], i++);
+
     for (i = endPosition + 1; i < min(_spi.chainLength(), (position + width)); i++) // right spaces
         _spi.writeByte(S7_SPACE, i);
 
@@ -292,54 +295,7 @@ void SegM8::display(const char* string, uint8_t position, uint8_t width, uint8_t
 }
 
 void SegM8::display(String string, uint8_t position, uint8_t width, uint8_t flags) {
-    uint8_t beginPosition;
-    uint8_t endPosition;
-    uint8_t j = 0, i = 0;
-
-    uint8_t trueLength = 0; // used chars in the input buffer
-    uint8_t trueWidth = 0; // length of result
-    for (i = 0; true; i++) {
-        if (string.length() <= i) // end of string
-            break;
-        else if (trueWidth == width) // calculation end
-            break;
-        else if (string[i] == '.') {
-            trueWidth--;
-        }
-        trueLength++;
-        trueWidth++;
-    }
-
-    if (flags & SEGM8_ALIGN_LEFT) {
-        beginPosition = position;
-        endPosition = min(_spi.chainLength(), (position + trueWidth));
-    } else { // SEGM8_ALIGN_RIGHT
-        if (trueWidth == width) {
-            beginPosition = position;
-        } else {
-            beginPosition = position + (width - trueWidth);
-        }
-        endPosition = min(_spi.chainLength(), (position + width));
-    }
-
-    for (i = position; i < beginPosition; i++) // left spaces
-        _spi.writeByte(S7_SPACE, i);
-
-    i = beginPosition;
-    for (j = 0; j < trueLength; j++) {
-        if (string[j] == '.') {
-            _spi.writeByte(decode(string[j - 1]) | S7_DOT, i - 1);
-        } else {
-            _spi.writeByte(decode(string[j]), i++);
-        }
-    }
-    if (string[j] == '.') {
-        _spi.writeByte(decode(string[j - 1]) | S7_DOT, i - 1);
-    }
-    for (i = endPosition + 1; i < min(_spi.chainLength(), (position + width)); i++) // right spaces
-        _spi.writeByte(S7_SPACE, i);
-
-    _spi.update();
+    display(string.c_str(), position, width, flags);
 }
 
 void SegM8::writeSegments(uint8_t mask, uint8_t deviceIndex) {
